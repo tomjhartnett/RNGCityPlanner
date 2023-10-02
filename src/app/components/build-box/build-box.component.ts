@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CityManagerService} from "../../services/city-manager.service";
 import {Building} from "../../models/building.model";
 
@@ -9,8 +9,14 @@ import {Building} from "../../models/building.model";
 })
 export class BuildBoxComponent implements OnInit {
 
+  @Output() hover: EventEmitter<Building> = new EventEmitter();
+
   get possibleBuildings(): Building[] {
     return this.cityManagerService.possibleBuildings;
+  }
+
+  get affordableBuildings(): Building[] {
+    return this.possibleBuildings.filter(b => this.cityManagerService.hasResources(b.buildCost));
   }
 
   constructor(
@@ -20,4 +26,7 @@ export class BuildBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  emitHoverItem(item: Building) {
+    this.hover.emit(item);
+  }
 }

@@ -41,3 +41,10 @@
   cursor: pointer;
   /* Add any additional styles to the button */
 }
+
+.building-button[disabled] {
+  background-color: #ccc; /* Greyed-out background color */
+  color: #999; /* Greyed-out text color */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+  /* Any additional styles for disabled buttons */
+}

@@ -1,7 +1,7 @@
 <div class="map">
   <div *ngFor="let y of maxYArray" class="row">
     <div *ngFor="let x of maxXArray" class="tile">
-      <img src="../../../assets/images/{{ map.get({ x: x - xOffset, y: y - yOffset })?.image || 'empty' }}.png" alt="image">
+      <img src="../../../assets/images/{{ map.get({ x: x - xOffset, y: y - yOffset })?.image || 'empty' }}.png" alt="image" (click)="emitHoverItem(map.get({ x: x - xOffset, y: y - yOffset }))">
     </div>
   </div>
 </div>

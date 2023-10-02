@@ -2,11 +2,11 @@
   <app-resource-bar></app-resource-bar>
   <div class="container">
     <div class="left-panel">
-      <app-hover-box></app-hover-box>
-      <app-build-box></app-build-box>
+      <app-hover-box [selectedItem]="selectedItem"></app-hover-box>
+      <app-build-box (hover)="setSelectedItem($event)"></app-build-box>
     </div>
     <div class="right-panel">
-      <app-map-view></app-map-view>
+      <app-map-view (hover)="setSelectedItem($event)"></app-map-view>
     </div>
   </div>
 </div>

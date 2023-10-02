@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MapManagerService} from "../../services/map-manager.service";
 import {Tile} from "../../models/tile.model";
 
@@ -8,6 +8,8 @@ import {Tile} from "../../models/tile.model";
   styleUrls: ['./map-view.component.css']
 })
 export class MapViewComponent implements OnInit {
+
+  @Output() hover: EventEmitter<Tile> = new EventEmitter();
 
   get map(): Map<{x: number, y: number}, Tile> {
     return this.mapManagerService.map;
@@ -61,5 +63,11 @@ export class MapViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+  }
+
+  emitHoverItem(item: Tile | undefined) {
+    if (item) {
+      this.hover.emit(item);
+    }
   }
 }

@@ -1,1 +1,24 @@
-<p>hover-box works!</p>
+<div class="hover-box">
+  <div *ngIf="!selectedItem">
+    <span>No selected item. Click on a building or tile for more information.</span>
+  </div>
+  <div *ngIf="selectedItem">
+    <div class="box-header">
+      <h2>{{ selectedItem.name }}</h2>
+    </div>
+    <div class="box-content">
+      <img src="../../../assets/images/{{ selectedItem.image }}.png" alt="{{ selectedItem.name }}" />
+      <div class="cost" *ngIf="selectedItem.cost">
+        <strong>Build Cost:</strong> {{ selectedItem.cost }}
+      </div>
+      <div class="resources">
+        <div class="input-resources" *ngIf="selectedItem.input">
+          <strong>Input Resources:</strong> {{ selectedItem.input }}
+        </div>
+        <div class="output-resources" *ngIf="selectedItem.output">
+          <strong>Output Resources:</strong> {{ selectedItem.output }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
