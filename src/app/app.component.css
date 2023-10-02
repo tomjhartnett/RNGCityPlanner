@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  height: 94vh; /* 100% of the viewport height */
+}
+
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0; /* Change this to your desired background color */
+}
+
+.right-panel {
+  flex: 2; /* Takes up 2/3 of the available space */
+  background-color: #ffffff; /* Change this to your desired background color */
+}
+
+app-hover-box {
+  flex: 1; /* Takes up 1/3 of the left panel */
+  background-color: #cccccc; /* Change this to your desired background color */
+  height: calc(33% - 10px);
+}
+
+app-build-box {
+  flex: 2; /* Takes up 2/3 of the left panel */
+}

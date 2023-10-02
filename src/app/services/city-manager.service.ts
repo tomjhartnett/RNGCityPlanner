@@ -7,14 +7,14 @@ import {Building} from "../models/building.model";
 export class CityManagerService {
 
   _possibleBuildings: Building[] = [
-    new Building("HQ", [{resource: "Gold", amount: 5}, {resource: "Food", amount: 5}, {resource: "Wood", amount: 2}], [], [{resource: "Wood", amount: 100}, {resource: "Stone", amount: 100}, {resource: "Tools", amount: 50}]),
-    new Building("House", [{resource: "Gold", amount: 1}], [{resource: "Food", amount: 1}], [{resource: "Wood", amount: 5}]),
-    new Building("Farm", [{resource: "Food", amount: 1}], [], [{resource: "Wood", amount: 2}]),
-    new Building("Sawmill", [{resource: "Wood", amount: 1}], [{resource: "Gold", amount: 1}], [{resource: "Wood", amount: 5}, {resource: "Gold", amount: 1}]),
-    new Building("Stone Quarry", [{resource: "Stone", amount: 1}], [{resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}]),
-    new Building("Iron Mine", [{resource: "Iron", amount: 1}], [{resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}, {resource: "Stone", amount: 10}]),
-    new Building("Tool Workshop", [{resource: "Tools", amount: 1}], [{resource: "Iron", amount: 1}, {resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}, {resource: "Stone", amount: 10}, {resource: "Iron", amount: 5}]),
-    new Building("Weapon Workshop", [{resource: "Weapons", amount: 1}], [{resource: "Iron", amount: 1}, {resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}, {resource: "Stone", amount: 10}, {resource: "Iron", amount: 5}])
+    new Building("HQ", [{resource: "Gold", amount: 5}, {resource: "Food", amount: 5}, {resource: "Wood", amount: 2}], [], [{resource: "Wood", amount: 100}, {resource: "Stone", amount: 100}, {resource: "Tools", amount: 50}], 'HQ'),
+    new Building("House", [{resource: "Gold", amount: 1}], [{resource: "Food", amount: 1}], [{resource: "Wood", amount: 5}], 'HQ'),
+    new Building("Farm", [{resource: "Food", amount: 1}], [], [{resource: "Wood", amount: 2}], 'HQ'),
+    new Building("Sawmill", [{resource: "Wood", amount: 1}], [{resource: "Gold", amount: 1}], [{resource: "Wood", amount: 5}, {resource: "Gold", amount: 1}], 'HQ'),
+    new Building("Stone Quarry", [{resource: "Stone", amount: 1}], [{resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}], 'HQ'),
+    new Building("Iron Mine", [{resource: "Iron", amount: 1}], [{resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}, {resource: "Stone", amount: 10}], 'HQ'),
+    new Building("Tool Workshop", [{resource: "Tools", amount: 1}], [{resource: "Iron", amount: 1}, {resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}, {resource: "Stone", amount: 10}, {resource: "Iron", amount: 5}], 'HQ'),
+    new Building("Weapon Workshop", [{resource: "Weapons", amount: 1}], [{resource: "Iron", amount: 1}, {resource: "Wood", amount: 1}], [{resource: "Wood", amount: 10}, {resource: "Stone", amount: 10}, {resource: "Iron", amount: 5}], 'HQ')
   ];
 
   _availableResources: {resource: string, amount: number}[] = [

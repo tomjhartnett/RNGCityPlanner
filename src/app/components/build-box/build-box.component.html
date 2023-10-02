@@ -1,0 +1,12 @@
+<div class="building-list">
+  <!-- Loop through the list of buildings -->
+  <ng-container *ngFor="let building of possibleBuildings">
+    <div class="building-row">
+      <div class="building-title">{{ building.name }}</div>
+      <div class="building-image">
+        <img src="../../../assets/images/{{ building.image }}.png" alt="{{ building.name }}" />
+      </div>
+      <button class="building-button">{{ building.buildCostFormatted }}</button>
+    </div>
+  </ng-container>
+</div>

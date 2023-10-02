@@ -1,0 +1,43 @@
+.building-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px;
+  /* Add any additional styles to the container */
+}
+
+.building-row {
+  width: 30%; /* Adjust as needed to fit the desired number of columns */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  /* Add any additional styles to the building row */
+}
+
+.building-title {
+  font-weight: bold;
+  /* Add any styles to the building title */
+}
+
+.building-image {
+  margin-top: 10px;
+  /* Add any styles to the building image */
+}
+
+.building-image img {
+  max-width: 100%;
+  max-height: 100px; /* Adjust the maximum height as needed */
+  /* Add any styles to the image element */
+}
+
+.building-button {
+  margin-top: 10px;
+  background-color: #007bff; /* Example button background color */
+  color: #fff; /* Example button text color */
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  /* Add any additional styles to the button */
+}
