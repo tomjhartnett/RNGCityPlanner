@@ -1,0 +1,42 @@
+.map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.tile {
+  width: 30px; /* Adjust the width and height as needed */
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Define CSS classes for tile colors */
+.Water {
+  background-color: blue;
+}
+
+.FertileLand {
+  background-color: green;
+}
+
+.NormalLand {
+  background-color: darkolivegreen;
+}
+
+.Hills {
+  background-color: sandybrown;
+}
+
+.Mountains {
+  background-color: saddlebrown;
+}
+
+.grey {
+  background-color: darkgray;
+}

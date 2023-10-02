@@ -1,0 +1,8 @@
+<div class="map">
+  <div *ngFor="let y of maxYArray" class="row">
+    <div *ngFor="let x of maxXArray" class="tile" [ngClass]="getTileClass(x - xOffset, y - yOffset)">
+      <!-- Display the tile based on map data -->
+      {{ map.get({ x: x - xOffset, y: y - yOffset }) }}
+    </div>
+  </div>
+</div>
