@@ -32,6 +32,14 @@ export class MapManagerService {
 
   constructor() {
     this._map = this.generateMap(3, 3, true);
+    this._map.get = function(key: {x: number, y: number}): Tile | undefined {
+      for(let [k, value] of this.entries()) {
+        if(key.x == k.x && key.y == k.y) {
+          return value;
+        }
+      }
+      return undefined;
+    }
   }
 
   generateMap(maxX: number, maxY: number, isStarterMap = false): Map<{x: number, y: number}, Tile> {
@@ -43,20 +51,7 @@ export class MapManagerService {
           this.generateTile(
             this.getAdjacentCells(x, y)
               .map(coords => {
-                let adjacentKey;
-                for(let k of retMap.keys()) {
-                  if (k.x == coords.x && k.y == coords.y) {
-                    adjacentKey = k;
-                  }
-                }
-                if (!adjacentKey) {
-                  for (let k of this.map.keys()) {
-                    if (k.x == coords.x && k.y == coords.y) {
-                      adjacentKey = k;
-                    }
-                  }
-                }
-                return adjacentKey ? retMap.get(adjacentKey) : undefined;
+                return retMap.get({x: coords.x, y: coords.y}) ? this.map.get({x: coords.x, y: coords.y}) : undefined;
               }),
             isStarterMap)
           );
@@ -92,7 +87,8 @@ export class MapManagerService {
     // Generate a random number between 0 and totalCount
     let totalCount = 0;
     for(let key of weightedPercentages.keys()) {
-      totalCount += weightedPercentages.get(key) || 0;
+      if (!isStarterMap || (key != TerrainType.Water && key != TerrainType.Mountains))
+        totalCount += weightedPercentages.get(key) || 0;
     }
     const randomValue = Math.random() * totalCount;
 

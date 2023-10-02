@@ -15,28 +15,3 @@
   justify-content: center;
   align-items: center;
 }
-
-/* Define CSS classes for tile colors */
-.Water {
-  background-color: blue;
-}
-
-.FertileLand {
-  background-color: green;
-}
-
-.NormalLand {
-  background-color: darkolivegreen;
-}
-
-.Hills {
-  background-color: sandybrown;
-}
-
-.Mountains {
-  background-color: saddlebrown;
-}
-
-.grey {
-  background-color: darkgray;
-}

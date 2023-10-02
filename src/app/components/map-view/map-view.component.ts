@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MapManagerService, TerrainType} from "../../services/map-manager.service";
+import {MapManagerService} from "../../services/map-manager.service";
 import {Tile} from "../../models/tile.model";
 
 @Component({
@@ -61,19 +61,5 @@ export class MapViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-  }
-
-  getTileClass(x: number, y: number): string {
-    let key;
-    for(let k of this.map.keys()) {
-      if (k.x == x && k.y == y) {
-        key = k;
-      }
-    }
-    if (key && this.map.get(key)) {
-      return TerrainType[this.map.get(key)!.type];
-    } else {
-      return 'grey';
-    }
   }
 }
