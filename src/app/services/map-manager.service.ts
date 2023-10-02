@@ -31,10 +31,10 @@ export class MapManagerService {
   }
 
   constructor() {
-    this._map = this.generateMap(40, 25);
+    this._map = this.generateMap(3, 3, true);
   }
 
-  generateMap(maxX: number, maxY: number): Map<{x: number, y: number}, Tile> {
+  generateMap(maxX: number, maxY: number, isStarterMap = false): Map<{x: number, y: number}, Tile> {
     let retMap: Map<{x: number, y: number}, Tile> = new Map<{x: number; y: number}, Tile>();
     for (let y = 0; y < maxY; y++) {
       for (let x = 0; x < maxX; x++) {
@@ -57,7 +57,8 @@ export class MapManagerService {
                   }
                 }
                 return adjacentKey ? retMap.get(adjacentKey) : undefined;
-              }))
+              }),
+            isStarterMap)
           );
       }
     }
@@ -76,7 +77,7 @@ export class MapManagerService {
     return coords;
   }
 
-  generateTile(adjacentTiles: (Tile | undefined)[]): Tile {
+  generateTile(adjacentTiles: (Tile | undefined)[], isStarterMap = false): Tile {
     // Calculate the weighted percentages for each tile type
     const weightedPercentages: Map<TerrainType, number> = new Map<TerrainType, number>();
 
@@ -102,7 +103,7 @@ export class MapManagerService {
     for (let key of weightedPercentages.keys()) {
       cumulativePercent += weightedPercentages.get(key) || 0;
 
-      if (randomValue <= cumulativePercent) {
+      if (randomValue <= cumulativePercent && (!isStarterMap || (key != TerrainType.Water && key != TerrainType.Mountains))) {
         selectedType = key;
         break;
       }
